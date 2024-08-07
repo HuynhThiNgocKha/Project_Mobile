@@ -51,7 +51,7 @@ Input.defaultProps = {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 16,
+    // marginBottom: 16,
   },
   label: {
     fontSize: 16,

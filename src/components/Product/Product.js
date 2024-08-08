@@ -1,7 +1,15 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import ButtonWithIcon from "../Button/ButtonIcon";
 
-const Product = ({ imageUrl, name, price, onAddToCart, numColumns }) => {
+const Product = ({
+  imageUrl,
+  name,
+  price,
+  onAddToCart,
+  numColumns,
+  onDetailProduct,
+}) => {
   const source = typeof imageUrl === "string" ? { uri: imageUrl } : imageUrl;
 
   // Calculate flexBasis based on number of columns
@@ -9,11 +17,17 @@ const Product = ({ imageUrl, name, price, onAddToCart, numColumns }) => {
 
   return (
     <View style={[styles.container, { flexBasis }]}>
-      <Image source={source} style={styles.image} />
-      <Text style={styles.name}>{name}</Text>
-      <Text style={styles.price}>${price.toFixed(2)}</Text>
-      <TouchableOpacity style={styles.button} onPress={onAddToCart}>
-        <Text style={styles.buttonText}>Add to Cart</Text>
+      <TouchableOpacity onPress={onDetailProduct}>
+        <Image source={source} style={styles.image} />
+        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.price}>${price.toFixed(2)}</Text>
+        <ButtonWithIcon
+          onPress={onAddToCart}
+          iconName="shopping-cart"
+          iconSize={24}
+          iconColor="white"
+          style={styles.button}
+        />
       </TouchableOpacity>
     </View>
   );
@@ -47,7 +61,8 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "tomato",
-    padding: 8,
+    paddingHorizontal: 40,
+    paddingVertical: 8,
     borderRadius: 5,
   },
   buttonText: {

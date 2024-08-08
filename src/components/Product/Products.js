@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import {
   ScrollView,
@@ -48,7 +49,15 @@ const Products = () => {
   // Xác định column theo kích thước màn hình
   const numColumns = width < 600 ? 2 : width < 900 ? 3 : 4;
 
+  const navigation = useNavigation();
+
+  const handleDetailProduct = (product) => {
+    navigation.navigate("DetailProduct");
+    console.log(`${product.name} detail`);
+  };
+
   const handleAddToCart = (product) => {
+    navigation.navigate("Cart");
     console.log(`${product.name} added to cart`);
   };
 
@@ -62,6 +71,7 @@ const Products = () => {
             name={product.name}
             price={product.price}
             onAddToCart={() => handleAddToCart(product)}
+            onDetailProduct={() => handleDetailProduct(product)}
             numColumns={numColumns}
           />
         ))}

@@ -1,13 +1,10 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { FontAwesome } from "react-native-vector-icons";
 
 const Category = ({
   onPress,
-  iconName,
-  iconSize,
-  iconColor,
+  IconComponent,
   label,
   buttonStyle,
   iconStyle,
@@ -27,12 +24,7 @@ const Category = ({
       ]}
     >
       <TouchableOpacity style={[styles.button, buttonStyle]} onPress={onPress}>
-        <FontAwesome
-          name={iconName}
-          size={iconSize}
-          color={iconColor}
-          style={[styles.icon, iconStyle]}
-        />
+        <IconComponent style={[styles.icon, iconStyle]} />
       </TouchableOpacity>
       {label && <Text style={[styles.label, labelStyle]}>{label}</Text>}
     </View>
@@ -41,9 +33,7 @@ const Category = ({
 
 Category.propTypes = {
   onPress: PropTypes.func.isRequired,
-  iconName: PropTypes.string.isRequired,
-  iconSize: PropTypes.number,
-  iconColor: PropTypes.string,
+  IconComponent: PropTypes.elementType.isRequired,
   label: PropTypes.string,
   buttonStyle: PropTypes.object,
   iconStyle: PropTypes.object,
@@ -55,8 +45,7 @@ Category.propTypes = {
 };
 
 Category.defaultProps = {
-  iconSize: 24,
-  iconColor: "white",
+  label: "",
   buttonStyle: {},
   iconStyle: {},
   labelStyle: {},

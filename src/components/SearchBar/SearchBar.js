@@ -5,7 +5,7 @@ import Input from "../Input/Input";
 const SearchBar = () => {
   return (
     <View style={{ flex: 1 }}>
-      <Input placeholder="Search" icon="search" />
+      <Input placeholder="Search" icon="search" borderRadius={90} />
     </View>
   );
 };

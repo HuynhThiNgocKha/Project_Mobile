@@ -82,12 +82,12 @@ const Categories = ({ flexDirection = "row", flexWrap = "wrap" }) => {
 const styles = StyleSheet.create({
   container: {
     padding: 16,
-    backgroundColor: "#ffffff",
+    backgroundColor: "#e2cae4",
     alignItems: "center",
   },
   categoryContainer: {
-    flexBasis: "23%", // Adjust based on spacing and padding
-    margin: "1%", // Adjust spacing between items
+    flexBasis: "23%",
+    margin: "1%",
     borderRadius: 10,
   },
 });

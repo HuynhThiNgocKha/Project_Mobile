@@ -5,7 +5,7 @@ import ButtonWithIcon from "../../components/Button/ButtonIcon";
 import Categories from "../../components/Categories/Categories";
 import Row from "../../components/Layout/Row";
 import ProductBanner from "../../components/Product/ProductBanner";
-import ProductList from "../../components/Product/ProductList";
+import Products from "../../components/Product/Products";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
 const HomeScreen = () => {
@@ -23,8 +23,8 @@ const HomeScreen = () => {
         />
       </Row>
       <Categories />
+      <Products />
       <ProductBanner />
-      <ProductList />
       {/* <SignIn /> */}
     </ScrollView>
   );

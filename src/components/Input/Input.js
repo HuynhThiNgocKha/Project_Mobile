@@ -11,11 +11,12 @@ const Input = ({
   secureTextEntry,
   style,
   icon,
+  borderRadius,
 }) => {
   return (
     <View style={styles.container}>
       {label && <Text style={styles.label}>{label}</Text>}
-      <View style={styles.inputContainer}>
+      <View style={[styles.inputContainer, borderRadius && { borderRadius }]}>
         {icon && <Icon name={icon} style={styles.icon} />}
         <TextInput
           style={[styles.input, style, icon ? styles.inputWithIcon : null]}
@@ -24,6 +25,7 @@ const Input = ({
           placeholder={placeholder}
           secureTextEntry={secureTextEntry}
           placeholderTextColor="#aaa"
+          keyboardType="default"
         />
       </View>
     </View>
@@ -39,6 +41,7 @@ Input.propTypes = {
   secureTextEntry: PropTypes.bool,
   style: PropTypes.object,
   icon: PropTypes.string,
+  borderRadius: PropTypes.string,
 };
 
 Input.defaultProps = {
@@ -47,11 +50,12 @@ Input.defaultProps = {
   secureTextEntry: false,
   style: {},
   icon: null,
+  borderRadius: "",
 };
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 16,
+    // marginBottom: 16,
   },
   label: {
     fontSize: 16,
@@ -63,7 +67,7 @@ const styles = StyleSheet.create({
     borderColor: "#ddd",
     borderWidth: 1,
     borderRadius: 5,
-    position: "relative", // Đảm bảo inputContainer có position relative để icon có thể tuyệt đối
+    position: "relative", // có position relative để icon có thể tuyệt đối nằm trong border
   },
   icon: {
     position: "absolute",

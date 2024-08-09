@@ -1,14 +1,20 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import ProfileScreenNoLogin from "./ProfileScreenNoLogin";
 
 const ProfileScreen = () => {
   return (
-    <View>
-      <Text>ProfileScreen</Text>
+    <View style={styles.container}>
+      <ProfileScreenNoLogin />
     </View>
   );
 };
 
 export default ProfileScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#ffffff",
+  },
+});

@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import CImage from "../Imgae/Image";
+import CImage from "../../components/Imgae/Image";
 
 const DetailProduct = ({ route, navigation }) => {
   const { product } = route.params;

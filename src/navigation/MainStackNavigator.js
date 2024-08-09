@@ -2,8 +2,8 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import DetailProduct from "../components/Product/DetailProduct.js";
 import Cart from "../screens/Cart/Cart.js";
+import DetailProduct from "../screens/Product/DetailProduct.js";
 import AppTabNavigator from "./AppTabNavigator";
 
 const Stack = createNativeStackNavigator();

@@ -33,7 +33,7 @@ ButtonWithIcon.propTypes = {
 ButtonWithIcon.defaultProps = {
   iconSize: 24,
   iconColor: "white",
-  style: { justifyContent: "center", alignItems: "center" },
+  style: { display: "flex", justifyContent: "center", alignItems: "center" },
   textStyle: {},
 };
 

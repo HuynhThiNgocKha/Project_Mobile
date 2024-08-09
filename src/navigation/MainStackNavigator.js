@@ -9,6 +9,13 @@ import AppTabNavigator from "./AppTabNavigator";
 
 const Stack = createNativeStackNavigator();
 
+const getCommonHeaderOptions = (route, defaultTitle) => ({
+  title: route.params?.name || defaultTitle,
+  headerStyle: { backgroundColor: "tomato" },
+  headerTintColor: "#fff",
+  headerTitleStyle: { fontWeight: "bold" },
+});
+
 const MainStackNavigator = () => (
   <NavigationContainer>
     <Stack.Navigator initialRouteName="Tabs">
@@ -21,22 +28,12 @@ const MainStackNavigator = () => (
       <Stack.Screen
         name="DetailProduct"
         component={DetailProduct}
-        options={({ route }) => ({
-          title: route.params.name || "Product Detail",
-          headerStyle: { backgroundColor: "tomato" },
-          headerTintColor: "#fff",
-          headerTitleStyle: { fontWeight: "bold" },
-        })}
+        options={({ route }) => getCommonHeaderOptions(route, "Product Detail")}
       />
       <Stack.Screen
         name="payment"
         component={Payment}
-        options={({ route }) => ({
-          title: route.params.name || "Payment",
-          headerStyle: { backgroundColor: "tomato" },
-          headerTintColor: "#fff",
-          headerTitleStyle: { fontWeight: "bold" },
-        })}
+        options={({ route }) => getCommonHeaderOptions(route, "Payment")}
       />
       {/* Thêm các màn hình khác không nằm trong tab ở đây */}
     </Stack.Navigator>

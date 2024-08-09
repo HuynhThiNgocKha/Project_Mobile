@@ -17,7 +17,16 @@ const MainStackNavigator = () => (
         options={{ headerShown: false }}
       />
       <Stack.Screen name="Cart" component={Cart} />
-      <Stack.Screen name="DetailProduct" component={DetailProduct} />
+      <Stack.Screen
+        name="DetailProduct"
+        component={DetailProduct}
+        options={({ route }) => ({
+          title: route.params.name || "Product Detail",
+          headerStyle: { backgroundColor: "tomato" },
+          headerTintColor: "#fff",
+          headerTitleStyle: { fontWeight: "bold" },
+        })}
+      />
       {/* Thêm các màn hình khác không nằm trong tab ở đây */}
     </Stack.Navigator>
   </NavigationContainer>

@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import Cart from "../screens/Cart/Cart.js";
+import Payment from "../screens/Payment/Payment.js";
 import DetailProduct from "../screens/Product/DetailProduct.js";
 import AppTabNavigator from "./AppTabNavigator";
 
@@ -22,6 +23,16 @@ const MainStackNavigator = () => (
         component={DetailProduct}
         options={({ route }) => ({
           title: route.params.name || "Product Detail",
+          headerStyle: { backgroundColor: "tomato" },
+          headerTintColor: "#fff",
+          headerTitleStyle: { fontWeight: "bold" },
+        })}
+      />
+      <Stack.Screen
+        name="payment"
+        component={Payment}
+        options={({ route }) => ({
+          title: route.params.name || "Payment",
           headerStyle: { backgroundColor: "tomato" },
           headerTintColor: "#fff",
           headerTitleStyle: { fontWeight: "bold" },

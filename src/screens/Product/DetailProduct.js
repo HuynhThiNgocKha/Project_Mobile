@@ -1,12 +1,8 @@
 import React from "react";
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import ButtonWithIcon from "../../components/Button/ButtonIcon";
 import CImage from "../../components/Imgae/Image";
+import Row from "../../components/Layout/Row";
 
 const DetailProduct = ({ route, navigation }) => {
   const { product } = route.params;
@@ -16,40 +12,68 @@ const DetailProduct = ({ route, navigation }) => {
       ? { uri: product.imageUrl }
       : product.imageUrl;
 
+  const handleBuyNow = (product) => {
+    navigation.navigate("payment", { product });
+    alert("Proceeding to checkout...");
+  };
+
+  const handleAddToCart = (product) => {
+    navigation.navigate("Cart");
+    console.log(`${product.name} added to cart`);
+  };
+
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <CImage source={source} />
-      <Text style={styles.name}>{product.name}</Text>
-      <Text style={styles.price}>${product.price.toFixed(2)}</Text>
+    <>
+      <ScrollView contentContainerStyle={styles.container}>
+        <CImage source={source} />
+        <Text style={styles.name}>{product.name}</Text>
+        <Text style={styles.price}>${product.price.toFixed(2)}</Text>
 
-      <Text style={styles.sectionTitle}>Description</Text>
-      <Text style={styles.description}>{product.description}</Text>
+        <Text style={styles.sectionTitle}>Description</Text>
+        <Text style={styles.description}>{product.description}</Text>
 
-      <Text style={styles.sectionTitle}>Details</Text>
-      <View style={styles.detailsContainer}>
-        <Text style={styles.detailItem}>Color: {product.color || "N/A"}</Text>
-        <Text style={styles.detailItem}>Size: {product.size || "N/A"}</Text>
-        <Text style={styles.detailItem}>Weight: {product.weight || "N/A"}</Text>
-      </View>
+        <Text style={styles.sectionTitle}>Details</Text>
+        <View style={styles.detailsContainer}>
+          <Text style={styles.detailItem}>Color: {product.color || "N/A"}</Text>
+          <Text style={styles.detailItem}>Size: {product.size || "N/A"}</Text>
+          <Text style={styles.detailItem}>
+            Weight: {product.weight || "N/A"}
+          </Text>
+        </View>
+        <View style={styles.detailsContainer}>
+          <Text style={styles.detailItem}>Color: {product.color || "N/A"}</Text>
+          <Text style={styles.detailItem}>Size: {product.size || "N/A"}</Text>
+          <Text style={styles.detailItem}>
+            Weight: {product.weight || "N/A"}
+          </Text>
+        </View>
 
-      <Text style={styles.sectionTitle}>Reviews</Text>
-      {product.reviews && product.reviews.length > 0 ? (
-        product.reviews.map((review, index) => (
-          <View key={index} style={styles.review}>
-            <Text style={styles.reviewText}>{review}</Text>
-          </View>
-        ))
-      ) : (
-        <Text style={styles.noReviewsText}>No reviews yet</Text>
-      )}
-
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => alert("Added to Cart")}
-      >
-        <Text style={styles.buttonText}>Add to Cart</Text>
-      </TouchableOpacity>
-    </ScrollView>
+        <Text style={styles.sectionTitle}>Reviews</Text>
+        {product.reviews && product.reviews.length > 0 ? (
+          product.reviews.map((review, index) => (
+            <View key={index} style={styles.review}>
+              <Text style={styles.reviewText}>{review}</Text>
+            </View>
+          ))
+        ) : (
+          <Text style={styles.noReviewsText}>No reviews yet</Text>
+        )}
+      </ScrollView>
+      <Row style={[styles.rowButton]}>
+        <ButtonWithIcon
+          onPress={() => handleAddToCart(product)}
+          iconName="shopping-cart"
+          iconSize={24}
+          iconColor="white"
+          style={styles.button}
+        />
+        <ButtonWithIcon
+          onPress={() => handleBuyNow(product)}
+          title="Buy now"
+          style={[styles.button, styles.buyNowButton]}
+        />
+      </Row>
+    </>
   );
 };
 
@@ -114,14 +138,27 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   button: {
-    backgroundColor: "tomato",
-    padding: 10,
+    backgroundColor: "#ff7043",
+    paddingHorizontal: 20,
+    paddingVertical: 8,
     borderRadius: 5,
+    maxHeight: "90%",
+    minWidth: "20%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
-  buttonText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "bold",
+  buyNowButton: {
+    backgroundColor: "#28a745",
+  },
+  rowButton: {
+    width: "100%",
+    justifyContent: "space-around",
+    alignItems: "center",
+    backgroundColor: "#ffffff",
+    borderTopWidth: 1,
+    borderColor: "#e8e4e4",
+    paddingVertical: 5,
   },
 });
 

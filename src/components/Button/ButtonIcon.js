@@ -1,4 +1,3 @@
-// src/components/ButtonWithIcon.js
 import PropTypes from "prop-types";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
@@ -34,7 +33,7 @@ ButtonWithIcon.propTypes = {
 ButtonWithIcon.defaultProps = {
   iconSize: 24,
   iconColor: "white",
-  style: {},
+  style: { justifyContent: "center", alignItems: "center" },
   textStyle: {},
 };
 

@@ -25,6 +25,7 @@ const Input = ({
           placeholder={placeholder}
           secureTextEntry={secureTextEntry}
           placeholderTextColor="#aaa"
+          keyboardType="default"
         />
       </View>
     </View>

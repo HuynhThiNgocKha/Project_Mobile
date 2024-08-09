@@ -1,6 +1,7 @@
 import React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import ButtonWithIcon from "../Button/ButtonIcon";
+import CImage from "../Imgae/Image";
 
 const Product = ({
   imageUrl,
@@ -18,7 +19,7 @@ const Product = ({
   return (
     <View style={[styles.container, { flexBasis }]}>
       <TouchableOpacity onPress={onDetailProduct}>
-        <Image source={source} style={styles.image} />
+        <CImage source={source} />
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.price}>${price.toFixed(2)}</Text>
         <ButtonWithIcon

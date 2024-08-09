@@ -52,7 +52,7 @@ const Products = () => {
   const navigation = useNavigation();
 
   const handleDetailProduct = (product) => {
-    navigation.navigate("DetailProduct");
+    navigation.navigate("DetailProduct", { product });
     console.log(`${product.name} detail`);
   };
 

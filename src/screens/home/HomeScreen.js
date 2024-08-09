@@ -12,7 +12,7 @@ const HomeScreen = () => {
   const navigation = useNavigation();
   return (
     <ScrollView style={styles.container}>
-      <Row style={{ paddingHorizontal: "1%", paddingTop: "1%" }}>
+      <Row style={styles.rowSearchContainer}>
         <SearchBar />
         <ButtonWithIcon
           onPress={() => navigation.navigate("Cart")}
@@ -36,5 +36,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+  },
+  rowSearchContainer: {
+    paddingHorizontal: "1%",
+    paddingTop: "1%",
+    marginBottom: "1%",
   },
 });

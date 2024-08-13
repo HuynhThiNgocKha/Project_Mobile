@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import {
   StyleSheet,
@@ -8,6 +9,8 @@ import {
 } from "react-native";
 
 const Register = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Register</Text>
@@ -29,7 +32,16 @@ const Register = () => {
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.linkButton}>
-        <Text style={styles.linkText}>Already have an account? Login</Text>
+        <Text style={styles.linkText}>
+          Already have an account?{" "}
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("signIn");
+            }}
+          >
+            Login
+          </TouchableOpacity>
+        </Text>
       </TouchableOpacity>
     </View>
   );

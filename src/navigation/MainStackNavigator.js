@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import Cart from "../screens/Cart/Cart.js";
+import Cart from "../screens/Cart/Carts.js";
 import Payment from "../screens/Payment/Payment.js";
 import DetailProduct from "../screens/Product/DetailProduct.js";
 import Register from "../screens/sign/Register.js";

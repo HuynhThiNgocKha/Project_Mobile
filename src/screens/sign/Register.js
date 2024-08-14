@@ -45,7 +45,7 @@ const Register = () => {
       />
 
       <ButtonWithIcon
-        onPress={() => handleLogin()}
+        onPress={() => handleRegister()}
         title="Register"
         style={[styles.button]}
         textStyle={styles.buttonText}

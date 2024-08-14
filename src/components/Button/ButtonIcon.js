@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Alert, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { FontAwesome } from "react-native-vector-icons";
 
 const ButtonWithIcon = ({
@@ -21,7 +21,7 @@ const ButtonWithIcon = ({
 };
 
 ButtonWithIcon.propTypes = {
-  onPress: PropTypes.func.isRequired,
+  onPress: PropTypes.func,
   iconName: PropTypes.string.isRequired,
   iconSize: PropTypes.number,
   iconColor: PropTypes.string,
@@ -31,6 +31,13 @@ ButtonWithIcon.propTypes = {
 };
 
 ButtonWithIcon.defaultProps = {
+  onPress: () =>
+    Alert.alert(
+      "Coming Soon",
+      "This feature is not yet available.",
+      [{ text: "OK" }],
+      { cancelable: true }
+    ),
   iconSize: 24,
   iconColor: "white",
   style: {

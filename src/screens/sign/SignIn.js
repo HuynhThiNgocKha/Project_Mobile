@@ -34,7 +34,7 @@ const SignIn = () => {
         icon="lock"
       />
       <ButtonWithIcon
-        onPress={() => handleLogin()}
+        // onPress={() => handleLogin()}
         title="Sign In"
         style={[styles.button]}
         textStyle={styles.buttonText}

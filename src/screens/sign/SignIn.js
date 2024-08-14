@@ -37,6 +37,7 @@ const SignIn = () => {
         onPress={() => handleLogin()}
         title="Sign In"
         style={[styles.button]}
+        textStyle={styles.buttonText}
       />
     </View>
   );
@@ -51,15 +52,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
   },
   button: {
-    backgroundColor: "#ff7043",
-    paddingHorizontal: 20,
-    paddingVertical: 8,
-    borderRadius: 5,
-    maxHeight: "90%",
-    minWidth: "20%",
-    display: "flex",
-    justifyContent: "center",
+    backgroundColor: "tomato",
+    padding: 15,
     alignItems: "center",
+    marginVertical: 10,
+    borderRadius: 90,
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
   },
 });
 

@@ -1,35 +1,55 @@
 import { useNavigation } from "@react-navigation/native";
-import React from "react";
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import ButtonWithIcon from "../../components/Button/ButtonIcon";
+import Input from "../../components/Input/Input";
 
 const Register = () => {
   const navigation = useNavigation();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleRegister = () => {
+    alert("ok");
+    navigation.navigate("Home");
+    console.log("Email:", email);
+    console.log("Password:", password);
+  };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Register</Text>
-
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        keyboardType="email-address"
+      <Input
+        label="Email"
+        value={email}
+        onChangeText={setEmail}
+        placeholder="Enter your email"
+        icon="envelope"
       />
-      <TextInput style={styles.input} placeholder="Password" secureTextEntry />
-      <TextInput
-        style={styles.input}
-        placeholder="Confirm Password"
+      <Input
+        label="Password"
+        value={password}
+        onChangeText={setPassword}
+        placeholder="Enter your password"
         secureTextEntry
+        icon="lock"
+      />
+      <Input
+        label="Password"
+        value={confirmPassword}
+        onChangeText={setConfirmPassword}
+        placeholder="Enter confirm your password"
+        secureTextEntry
+        icon="lock"
       />
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Register</Text>
-      </TouchableOpacity>
+      <ButtonWithIcon
+        onPress={() => handleLogin()}
+        title="Register"
+        style={[styles.button]}
+        textStyle={styles.buttonText}
+      />
 
       <TouchableOpacity style={styles.linkButton}>
         <Text style={styles.linkText}>
@@ -52,7 +72,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "start",
     padding: 20,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#ffffff",
   },
   title: {
     fontSize: 28,
@@ -72,9 +92,9 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "tomato",
     padding: 15,
-    borderRadius: 5,
+    borderRadius: 90,
     alignItems: "center",
-    marginBottom: 10,
+    marginVertical: 10,
   },
   buttonText: {
     color: "#fff",

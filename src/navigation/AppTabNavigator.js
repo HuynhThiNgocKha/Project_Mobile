@@ -1,5 +1,4 @@
-// src/navigation/AppTabNavigator.js
-import { FontAwesome } from "@expo/vector-icons"; // Hoặc 'react-native-vector-icons/FontAwesome' nếu không dùng expo
+import { FontAwesome } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";

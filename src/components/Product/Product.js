@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import ButtonWithIcon from "../Button/ButtonIcon";
@@ -32,6 +33,20 @@ const Product = ({
       </TouchableOpacity>
     </View>
   );
+};
+
+Product.propTypes = {
+  imageUrl: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      uri: PropTypes.string.isRequired,
+    }),
+  ]).isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  onAddToCart: PropTypes.func.isRequired,
+  numColumns: PropTypes.number.isRequired,
+  onDetailProduct: PropTypes.func.isRequired,
 };
 
 const styles = StyleSheet.create({

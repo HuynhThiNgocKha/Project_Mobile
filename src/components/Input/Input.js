@@ -12,6 +12,7 @@ const Input = ({
   style,
   icon,
   borderRadius,
+  keyboardType,
 }) => {
   return (
     <View style={styles.container}>
@@ -25,7 +26,7 @@ const Input = ({
           placeholder={placeholder}
           secureTextEntry={secureTextEntry}
           placeholderTextColor="#aaa"
-          keyboardType="default"
+          keyboardType={keyboardType}
         />
       </View>
     </View>
@@ -42,6 +43,7 @@ Input.propTypes = {
   style: PropTypes.object,
   icon: PropTypes.string,
   borderRadius: PropTypes.string,
+  keyboardType: PropTypes.string,
 };
 
 Input.defaultProps = {
@@ -51,6 +53,7 @@ Input.defaultProps = {
   style: {},
   icon: null,
   borderRadius: "",
+  keyboardType: "default",
 };
 
 const styles = StyleSheet.create({

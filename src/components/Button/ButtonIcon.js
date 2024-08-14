@@ -33,14 +33,17 @@ ButtonWithIcon.propTypes = {
 ButtonWithIcon.defaultProps = {
   iconSize: 24,
   iconColor: "white",
-  style: { display: "flex", justifyContent: "center", alignItems: "center" },
+  style: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   textStyle: {},
 };
 
 const styles = StyleSheet.create({
   buttonText: {
     color: "white",
-    marginLeft: 10,
     fontSize: 16,
   },
 });
